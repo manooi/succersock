@@ -1,0 +1,23 @@
+<section id="navbar">
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span> Succersock </span>
+    <mat-icon class="ml-1">sports-soccer</mat-icon>
+  </mat-toolbar>
+</section>
+
+
+<section id="main-content">
+  <div id="container">
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-8bits" [fullScreen]="true">
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+    
+    <router-outlet></router-outlet>
+  </div>
+  <section id="footer">
+    <p class="text-center">For education purpose only</p>
+  </section>
+</section>

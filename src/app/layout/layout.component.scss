@@ -1,0 +1,29 @@
+.mat-toolbar {
+  background-color: #2F5D62;
+  height: 65px;
+  position: fixed;
+  top: 0;
+}
+
+#main-content {
+  background-color: #DFEEEA;
+  position: fixed;
+  top: 65px;
+  height: calc(100% - 65px);
+  width: 100%;
+  // border: 2px solid red;
+  overflow-y: scroll;
+}
+
+#container {
+  width: 65%;
+  margin: 0 auto;
+  padding: 12px 12px 0px 12px;
+  background-color: #A7C4BC;
+  // border: 2px solid green;
+}
+
+span {
+  font-size: 1.25em;
+  font-weight: bold;
+}
