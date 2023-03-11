@@ -15,10 +15,10 @@
 </section>
  -->
 
- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-8bits" [fullScreen]="true">
-   <p style="color: white"> Loading... </p>
- </ngx-spinner>
- 
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-8bits" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
 <!-- Navbar -->
 <section>
   <app-navbar [drawer]="drawer"></app-navbar>
@@ -31,7 +31,10 @@
       <app-sidebar [drawer]="drawer"></app-sidebar>
     </div>
   </mat-drawer>
-  <div class="container" >
-    <router-outlet></router-outlet>
-  </div>
+  <mat-drawer-content infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="250" (scrolled)="onScroll()"
+    [scrollWindow]="false">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>

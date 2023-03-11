@@ -3,6 +3,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
 import { NewsFeed } from 'src/app/model/news-feed';
 import { NewsFeedService } from 'src/app/service/api/news-feed.service';
+import { ScrollService } from 'src/app/service/scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -12,16 +13,33 @@ import { NewsFeedService } from 'src/app/service/api/news-feed.service';
 export class HomeComponent implements OnInit {
 
   news: NewsFeed[] = [];
+  limit: number = 10;
 
-  constructor(private newsFeedService: NewsFeedService, private spinner: NgxSpinnerService,) {
+  constructor(
+    private newsFeedService: NewsFeedService,
+    private spinner: NgxSpinnerService,
+    private scrollSeRvice: ScrollService
+  ) {
 
   }
 
   ngOnInit(): void {
-    this.spinner.show();
-    this.newsFeedService.getNewsFeed().subscribe(
+    this.fetch(this.limit);
+
+    this.scrollSeRvice.onScrolled$.subscribe(
       (data) => {
-        this.news = data.map((d)=> ({...d, content: d.content.trim()}));
+        console.log("scrolled wa!");
+        this.limit += 10;
+        this.fetch(this.limit);
+      }
+    )
+  }
+
+  fetch(limit: number) {
+    this.spinner.show();
+    this.newsFeedService.getNewsFeed(limit).subscribe(
+      (data) => {
+        this.news = data.map((d) => ({ ...d, content: d.content.trim() }));
         this.spinner.hide();
       },
       (err) => {

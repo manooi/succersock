@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollService } from '../service/scroll.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit  {
 
-  constructor() {
+  constructor(private scrollSeRvice: ScrollService) {
   }
 
   ngOnInit(): void {
 
+  }
+
+  onScroll() {
+    this.scrollSeRvice.scrolled();
   }
 }

@@ -12,6 +12,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { ScrollTrackerDirective } from 'src/shared/directives/scroll-tracker.directive';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
 @NgModule({
@@ -29,10 +31,13 @@ import { ScrollTrackerDirective } from 'src/shared/directives/scroll-tracker.dir
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    InfiniteScrollModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
