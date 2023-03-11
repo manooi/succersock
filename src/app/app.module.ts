@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { ScrollTrackerDirective } from 'src/shared/directives/scroll-tracker.directive';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     LayoutComponent,
     HomeComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ScrollTrackerDirective
   ],
   imports: [
     BrowserModule,

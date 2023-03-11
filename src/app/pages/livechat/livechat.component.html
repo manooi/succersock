@@ -1,0 +1,23 @@
+<h1>เชียร์สด</h1>
+<p>แมนยู - ลิเวอร์พูล</p>
+
+<div class="grid">
+  <div class="col-6">
+    <div class="chat-box" scrollTracker>
+      <div class="mt-3"></div>
+      <div class="message" *ngFor="let _ of [].constructor(20)">
+        <p class="username p-0 mt-1">Mark:</p>
+        <p class="p-0 mt-1">Good morning, folks!</p>
+      </div>
+    </div>
+    <div class="type" >
+      <input type="text" placeholder="Type your message...">
+      <button class="submit" (click)="debug()">Send</button>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="team-box">
+      <h3>เลือกทีม</h3>
+    </div>
+  </div>
+</div>

@@ -6,8 +6,10 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
   {
-    path: "", component: LayoutComponent, children: [
-      { path: "home", component: HomeComponent }
+    path: "", component: LayoutComponent,
+    children: [
+      { path: "home", component: HomeComponent },
+      { path: "livechat", loadChildren: () => import('./pages/livechat/livechat.module').then(m => m.LivechatModule) },
     ]
   }
 ];

@@ -2,11 +2,14 @@
 <mat-card style="height: 100px" class="mt-3 mb-3" >โฆษณา</mat-card>
 <mat-card style="height: 100px" class="mt-3 mb-3" >โฆษณา</mat-card> -->
 
-<h1>Succersock reader!</h1>
-<p>For education purpose only. All contents are from soccersuck.com</p>
-<div class="grid m-0">
-  <div class="col-12 md:col-4" *ngFor="let n of news">
-    <mat-card class="example-card">
+<h1 class="mt-2">Succersock</h1>
+<p>A soccersuck's replicate. For education purpose only. All contents are from <a
+    href="www.soccersuck.com">www.soccersuck.com</a></p>
+<!-- Use m-0, if img is not properly cropped -->
+<!-- <div class="grid m-0"> -->
+<div class="grid">
+  <div class="col-12 lg:col-4" *ngFor="let n of news">
+    <mat-card >
       <div class="image-container">
         <img mat-card-image src="{{n.imgUrl}}" alt="Photo of a Shiba Inu">
       </div>
