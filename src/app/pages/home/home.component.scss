@@ -1,12 +1,19 @@
-:host {
-  // color: white;
+.image-container {
+  width: 100%; /* set the width of the container */
+  height: 0; /* set the initial height of the container to 0 */
+  padding-bottom: 66.67%; /* set the padding bottom to 2/3 of the width to achieve 3:2 aspect ratio */
+  position: relative; /* position the container */
+  overflow: hidden; /* hide any overflow from the image */
 }
 
-.example-card {
-  max-width: 100%;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.image-container img {
+  width: 100%; /* make the image fill the container */
+  height: 100%; /* make the image fill the container */
+  object-fit: cover; /* crop the image to fit the container */
+  position: absolute; /* position the image inside the container */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-position: top left; /* set the position of the image relative to the top left corner */
 }
