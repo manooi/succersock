@@ -6,16 +6,14 @@ import { Subject } from 'rxjs';
 })
 export class ScrollService {
 
-  private value:number = 5;
   constructor() {
-    console.log("im init", this.value );
-    this.value = 6;
+
   }
 
   private onScrolledSubject = new Subject();
   onScrolled$ = this.onScrolledSubject.asObservable();
 
   scrolled() {
-    this.onScrolledSubject.next(this.value);
+    this.onScrolledSubject.next(null);
   }
 }

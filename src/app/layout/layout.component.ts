@@ -8,7 +8,7 @@ import { ScrollService } from '../service/scroll.service';
 })
 export class LayoutComponent implements OnInit  {
 
-  constructor(private scrollSeRvice: ScrollService) {
+  constructor(private scrollService: ScrollService) {
   }
 
   ngOnInit(): void {
@@ -16,6 +16,6 @@ export class LayoutComponent implements OnInit  {
   }
 
   onScroll() {
-    this.scrollSeRvice.scrolled();
+    this.scrollService.scrolled();
   }
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Observable } from 'rxjs';
 import { NewsFeed } from 'src/app/model/news-feed';
 import { NewsFeedService } from 'src/app/service/api/news-feed.service';
 import { ScrollService } from 'src/app/service/scroll.service';
@@ -10,7 +9,7 @@ import { ScrollService } from 'src/app/service/scroll.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   news: NewsFeed[] = [];
   limit: number = 10;
@@ -20,16 +19,19 @@ export class HomeComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private scrollSeRvice: ScrollService
   ) {
+  }
 
+  ngOnDestroy(): void {
+    // console.log("destroyed");
   }
 
   ngOnInit(): void {
-    this.fetch(this.limit);
+    // console.count("home init");
+    this.fetch(10);
 
     this.scrollSeRvice.onScrolled$.subscribe(
       (data) => {
-        console.log("scrolled wa!");
-        if(this.limit <= 50) {
+        if (this.limit <= 50) {
           this.limit += 10;
           this.fetch(this.limit);
         }
@@ -45,7 +47,6 @@ export class HomeComponent implements OnInit {
         this.spinner.hide();
       },
       (err) => {
-        console.log("err", err);
         this.spinner.hide();
       },
     )
