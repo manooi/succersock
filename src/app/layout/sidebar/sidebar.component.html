@@ -1,0 +1,53 @@
+<mat-nav-list [disableRipple]="true" *ngIf="sidebarItems.length > 0">
+  <div class="text-center mt-1">
+    <!-- <h2 class="logo">Succersock</h2> -->
+  </div>
+
+  <!-- <ng-container *ngIf="auth.user$ | async as user"> -->
+  <div class="flex justify-content-center mt-2">
+    <div class="profile-img">
+      <img src="https://img.soccersuck.com/images/2022/10/13/4644312D-6603-4EEB-B884-BFC3B56BBB67.jpg">
+      <!-- <img [src]="user?.picture" class="avatar mr-2"> -->
+    </div>
+  </div>
+  <div class="text-center mt-2 mb-5">
+    <p>Kaka555</p>
+    <img src="http://www.soccersuck.com/images/ss20.gif" alt="">
+    <!-- <p class="username" *ngIf="user?.name && !user?.given_name">{{user?.name}}</p>
+      <p class="username" *ngIf="user?.given_name">{{user.given_name}} {{user.family_name}}</p>
+      <p>{{user?.role | titlecase}}</p> -->
+  </div>
+  <!-- </ng-container> -->
+
+  <!-- Dynamic -->
+  <ng-container *ngFor="let item of sidebarItems">
+    <h3 class="mt-3 pl-3">{{item.name}}</h3>
+    <ng-container *ngFor="let children of item.children">
+      <a mat-list-item style="cursor:pointer" [routerLink]="children.routerLink"
+        [routerLinkActive]="children.routerLinkActive">
+        <!-- <mat-icon class="mr-2">{{children.matIcon}}</mat-icon>{{children.name}} -->
+        <!-- <mat-icon class="mr-2">{{children.matIcon}}</mat-icon>{{children.name}} -->
+        <span class="ml-3">{{children.name}}</span>
+      </a>
+    </ng-container>
+  </ng-container>
+
+  <!-- Static -->
+  <h3 class="mt-5 pl-3">เชียร์สด</h3>
+  <a mat-list-item>
+    <span class="ml-3">
+      <img src="http://www.soccersuck.com/img/web/live.gif" style="margin: 0px 2px -1px 2px;width: 30px;" alt="">
+    </span> แมนยู - ลิเวอร์พูล
+  </a>
+  <a mat-list-item>
+    <span class="ml-3">
+      <img src="http://www.soccersuck.com/img/web/live.gif" style="margin: 0px 2px -1px 2px;width: 30px;" alt="">
+    </span> เชลซี - สเปอร์ส
+  </a>
+  <a mat-list-item>
+    <span class="ml-3">
+      <img src="http://www.soccersuck.com/img/web/live.gif" style="margin: 0px 2px -1px 2px;width: 30px;" alt="">
+    </span> แมนยู - ลิเวอร์พูล
+  </a>
+
+</mat-nav-list>

@@ -1,23 +1,36 @@
-<section id="navbar">
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span> Succersock </span>
-    <mat-icon class="ml-1">sports-soccer</mat-icon>
-  </mat-toolbar>
-</section>
+<!-- <app-navbar></app-navbar>
 
-
-<section id="main-content">
-  <div id="container">
+<section class="main-content">
+  <div class="container">
     <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-8bits" [fullScreen]="true">
       <p style="color: white"> Loading... </p>
     </ngx-spinner>
-    
+
     <router-outlet></router-outlet>
+
   </div>
   <section id="footer">
     <p class="text-center">For education purpose only</p>
   </section>
 </section>
+ -->
+
+<!-- Navbar -->
+<section>
+  <app-navbar [drawer]="drawer"></app-navbar>
+</section>
+
+<!-- Drawer & Content -->
+<mat-drawer-container class="main-content" autosize>
+  <mat-drawer #drawer mode="side" opened>
+    <div class="side-bar">
+      <app-sidebar [drawer]="drawer"></app-sidebar>
+    </div>
+  </mat-drawer>
+  <div class="container">
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-8bits" [fullScreen]="true">
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
