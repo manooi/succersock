@@ -29,8 +29,10 @@ export class HomeComponent implements OnInit {
     this.scrollSeRvice.onScrolled$.subscribe(
       (data) => {
         console.log("scrolled wa!");
-        this.limit += 10;
-        this.fetch(this.limit);
+        if(this.limit <= 50) {
+          this.limit += 10;
+          this.fetch(this.limit);
+        }
       }
     )
   }
